@@ -1,40 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>Programmable OS Command Palettes</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/night.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <style>
+      h-stack {
+        gap: var(--gap, 1em);
+        display: flex;
+        align-items: center;
+      }
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+      v-stack {
+        gap: var(--gap, 1em);
+        display: flex;
+        flex-direction: column;
+      }
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+      sl-copy-button::part(tooltip__body) {
+        background-color: #111111;
+        padding: 0.25em;
+        border: 1px solid gray;
+      }
+
+      input {
+        font-size: 2rem;
+      }
+    </style>
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="font-size: 2em; line-height: 1">
+            Programmable OS Command Palettes
+          </h1>
+          <p style="opacity: 0.7; padding: 1em">
+            Kevin Kipp, UI Engineer @Cloudflare
+          </p>
+          <sl-qr-code data-slides label="Link to slides"></sl-qr-code>
+          <p style="opacity: 0.7; font-size: 0.5em">☝ link to slides</p>
+          <!-- prettier-ignore -->
+          <aside class="notes">
+              Preflight:
+              - Unload clipboard history
+          </aside>
+        </section>
+        <!--
+			 Note that Windows uses `\r\n` instead of `\n` as its linefeed character.
+			 For a regex that supports all operating systems, use `\r?\n` instead of `\n`.
+        -->
+        <section
+          data-markdown="raycast-intro.md"
+          data-separator="---"
+          data-separator-vertical="^\n\n"
+          data-separator-notes="^Note:"
+          data-charset="iso-8859-15"
+        ></section>
+        <section>
+          <p>
+            Join the Austin JavaScript Discord and DM me for a referral code for
+            a free month of Raycast Pro! (while supplies last)
+          </p>
+          <sl-qr-code
+            value="https://discord.gg/sZ9Nejm88J"
+            label="Link to Austin JavaScript Discord"
+          ></sl-qr-code>
+          <p style="opacity: 0.7; font-size: 0.5em">
+            <a href="https://discord.gg/sZ9Nejm88J"> ☝ link to Discord </a>
+          </p>
+        </section>
+        <section
+          data-markdown="script-kit-intro.md"
+          data-separator="---"
+          data-separator-vertical="^\n\n"
+          data-separator-notes="^Note:"
+          data-charset="iso-8859-15"
+        ></section>
+        <section>
+          <h1 style="font-size: 2em; line-height: 1; margin-bottom: 1em">
+            Thank you!
+          </h1>
+          <sl-qr-code data-slides label="Link to slides"></sl-qr-code>
+          <p style="opacity: 0.7; font-size: 0.5em">☝ link to slides</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/qr-code/qr-code.js"
+      onload="document.querySelectorAll('sl-qr-code[data-slides]').forEach((e) => e.setAttribute('value', window.location.origin))"
+    ></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.13.1/cdn/components/copy-button/copy-button.js"
+    ></script>
+  </body>
 </html>

@@ -1,5 +1,5 @@
 {
-  "name": "reveal.js",
+  "name": "programmable-os-command-palettes",
   "version": "5.0.4",
   "description": "The HTML Presentation Framework",
   "homepage": "https://revealjs.com",
@@ -10,6 +10,7 @@
   "scripts": {
     "test": "gulp test",
     "start": "gulp serve",
+    "dev": "npm start",
     "build": "gulp build"
   },
   "author": {
@@ -56,6 +57,7 @@
     "qunit": "^2.20.0",
     "rollup": "^4.1.5",
     "sass": "^1.69.5",
+    "wrangler": "^3.28.3",
     "yargs": "^17.7.2"
   },
   "overrides": {
